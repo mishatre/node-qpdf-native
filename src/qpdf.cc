@@ -68,15 +68,15 @@ void DoOverlay(uv_work_t* req) {
         int min_suffix = 1;
         std::string name = resources.getUniqueResourceName("/Fx", min_suffix);
 
-        // Generate content to place the form XObject centered within
-        // destination page's trim box.
-        QPDFMatrix m;
-        std::string content = ph.placeFormXObject(stamp_fo, name, ph.getTrimBox().getArrayAsRectangle(), m);
+        // // Generate content to place the form XObject centered within
+        // // destination page's trim box.
+        // QPDFMatrix m;
+        std::string content = ph.placeFormXObject(stamp_fo, name, ph.getTrimBox().getArrayAsRectangle());
         if(!content.empty()) {
             // Append the content to the page's content. Surround the
             // original content with q...Q to the new content from the
             // page's original content.
-            resources.mergeResources("<< /XObject << >> >>"_qpdf);
+            resources.mergeResources(QPDFObjectHandle::parse("<< /XObject << >> >>"));
             resources.getKey("/XObject").replaceKey(name, stamp_fo);
             ph.addPageContents(QPDFObjectHandle::newStream(&inpdf, "q\n"), true);
             ph.addPageContents(QPDFObjectHandle::newStream(&inpdf, "\nQq\n" + content), false);
@@ -86,7 +86,7 @@ void DoOverlay(uv_work_t* req) {
         // to the new page. For more efficiency when copying multiple
         // pages, we can create a QPDFAcroFormDocumentHelper and pass
         // it in. See comments in QPDFPageObjectHelper.hh for details.
-        ph.copyAnnotations(stamp_page_1, m);
+        // ph.copyAnnotations(stamp_page_1, m);
 
     }
 

@@ -29,7 +29,7 @@
             "cflags_cc!": [ "-fno-exceptions" ],
             "include_dirs": [
                 "<!(node -e \"require('nan')\")",
-                "/media/mishatre/Fast1/projects/node-qpdf-native/qpdf/include",
+                # "/media/mishatre/Fast1/projects/node-qpdf-native/qpdf/include",
                 # "/media/mishatre/Fast1/projects/node-qpdf-native/qpdf/build/libqpdf"
             ],
             "conditions": [
