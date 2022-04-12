@@ -30,7 +30,7 @@
             "include_dirs": [
                 "<!(node -e \"require('nan')\")",
                 "/media/mishatre/Fast1/projects/node-qpdf-native/qpdf/include",
-                "/media/mishatre/Fast1/projects/node-qpdf-native/qpdf/build/libqpdf"
+                # "/media/mishatre/Fast1/projects/node-qpdf-native/qpdf/build/libqpdf"
             ],
             "conditions": [
                 ['OS=="linux" or OS=="solaris" or OS=="freebsd"', { # not windows not mac
@@ -42,9 +42,9 @@
                     'cflags': [
                         '<!@(pkg-config --cflags libqpdf)'
                     ],
-                    "library_dirs": [
-                        "/media/mishatre/Fast1/projects/node-qpdf-native/qpdf/build/libqpdf"
-                    ]
+                    # "library_dirs": [
+                    #     "/media/mishatre/Fast1/projects/node-qpdf-native/qpdf/build/libqpdf"
+                    # ]
                 }]
             ]
         }
