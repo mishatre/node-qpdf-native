@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./test/test.js",
-    "install": "node-gyp rebuild"
+    "install": "node-gyp-build"
   },
   "engines": {
     "node": ">=4"
   },
   "dependencies": {
-    "nan": "2.x"
+    "nan": "2.x",
+    "node-gyp-build": "^4.4.0"
   },
   "author": "M.Tregub",
   "license": "MIT"

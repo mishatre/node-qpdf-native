@@ -1,4 +1,5 @@
-const QPDF = require(__dirname + '/build/Release/qpdf.node');
+const QPDF = require('node-gyp-build')(__dirname);
+// const QPDF = require(__dirname + '/build/Release/qpdf.node');
 
 const stream = require('stream');
 // const util = require('util');
